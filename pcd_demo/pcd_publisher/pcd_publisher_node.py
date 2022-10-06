@@ -1,4 +1,3 @@
-
 import sys
 import os
 
@@ -19,7 +18,7 @@ class PCDPublisher(Node):
         # point cloud file. I.e. when you run it with ros:
         # ros2 run pcd_publisher pcd_publisher_node /path/to/ply
         assert len(sys.argv) > 1, "No ply file given."
-        assert os.path.exists(sys.argv[1]), "File doesn't exist."
+        # assert os.path.excdists(sys.argv[1]), "File doesn't exist."
         pcd_path = sys.argv[1]
 
         # I use Open3D to read point clouds and meshes. It's a great library!
@@ -79,7 +78,7 @@ def point_cloud(points, parent_frame):
     dtype = np.float32
     itemsize = np.dtype(dtype).itemsize # A 32-bit float takes 4 bytes.
 
-    data = points.astype(dtype).tobytes() 
+    data = points.astype(dtype).tobytes()
 
     # The fields specify what the bytes represents. The first 4 bytes 
     # represents the x-coordinate, the next 4 the y-coordinate, etc.
